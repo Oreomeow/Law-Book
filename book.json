@@ -19,6 +19,7 @@
         "tbfed-pagefooter"
     ],
     "pluginsConfig": {
+        "anchor-navigation-ex": { "showLevel": false },
         "favicon": "favicon.ico",
         "github": { "url": "https://github.com/Oreomeow/Law-Book" },
         "hide-element": {
