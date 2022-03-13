@@ -29,14 +29,14 @@
             "style": "background: none; max-height: 30px; min-height: 30px"
         },
         "sharing": {
-            "douban": true,
-            "facebook": true,
-            "google": true,
+            "douban": false,
+            "facebook": false,
+            "google": false,
             "pocket": true,
-            "qq": true,
-            "qzone": true,
-            "twitter": true,
-            "weibo": true,
+            "qq": false,
+            "qzone": false,
+            "twitter": false,
+            "weibo": false,
             "all": ["douban", "facebook", "google", "instapaper", "linkedin", "twitter", "weibo", "messenger", "qq", "qzone", "viber", "whatsapp"]
         },
         "tbfed-pagefooter": {
