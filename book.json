@@ -26,7 +26,7 @@
             "elements": [".gitbook-link"]
         },
         "insert-logo": {
-            "url": "https://raw.githubusercontent.com/Oreomeow/icons/main/Law-Book/law-book.png",
+            "url": "https://ghproxy.com/https://raw.githubusercontent.com/Oreomeow/Law-Book/gh-pages/law-book.png",
             "style": "background: none; max-height: 30px; min-height: 30px"
         },
         "sharing": {
