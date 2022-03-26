@@ -4,6 +4,8 @@ import argparse
 import os
 import re
 
+from cn_sort.process_cn_word import *
+
 
 def output_markdown(dire, base_dir, output_file, append, iter_depth=0):
     """Main iterator for get information from every file/folder
@@ -30,7 +32,9 @@ def output_markdown(dire, base_dir, output_file, append, iter_depth=0):
                 createRead0(file_or_path, "0-README.md")
                 output_file.write(
                     "  " * iter_depth
-                    + "* [{}]({}/{})\n".format(filename, filename, "0-README.md")
+                    + "* [{}]({}/{})\n".format(
+                        re.sub(r"^[0-9A-Z]+-", "", filename), filename, "0-README.md"
+                    )
                 )
                 output_markdown(
                     file_or_path, base_dir, output_file, append, iter_depth + 1
@@ -48,8 +52,12 @@ def output_markdown(dire, base_dir, output_file, append, iter_depth=0):
                     output_file.write(
                         "  " * iter_depth
                         + "* [{}]({})\n".format(
-                            write_md_filename(filename, append),
-                            os.path.join(os.path.relpath(dire, base_dir), filename),
+                            write_md_filename(
+                                re.sub(r"^[0-9A-Z]+-", "", filename), append
+                            ),
+                            os.path.join(
+                                os.path.relpath(dire, base_dir).lstrip(r".\\"), filename
+                            ),
                         )
                     )
                     # iter depth for indent, relpath and join to write link.
@@ -79,10 +87,11 @@ def is_markdown_file(filename):
         return filename[:-9]
 
 
-# create 0-README.md
 def createRead0(dir_input, filename):
     readmeFile = open(os.path.join(dir_input, filename), "w")
-    readmeFile.close()
+    title = re.sub(r"\.\\[0-9A-Z]+-", "", dir_input)
+    readmeFile.write(f"<!-- ex_nonav -->\n# {title}\n\n")
+    output_markdown(dir_input, dir_input, readmeFile, append=False)
     print("createRead0 ", filename)  # output log
 
 
@@ -97,7 +106,8 @@ def sort_dir_file(listdir, dire):
             list_of_file.append(filename)
     for dire in list_of_dir:
         list_of_file.append(dire)
-    list_of_file.sort(key=str.lower)
+
+    list_of_file = list(sort_text_list(list_of_file, mode=Mode.PINYIN))
     return list_of_file
 
 
@@ -153,7 +163,7 @@ def main():
         filename = "SUMMARY.md"
     output = open(os.path.join(dir_input, filename), "w")
     output.write("# Summary\n\n")
-    output.write("* [README](./README.md)\n")
+    output.write("* [目录](./README.md)\n\n---\n\n")
     output_markdown(dir_input, dir_input, output, append)
     output.close()
     print("GitBook auto summary finished:) ")
