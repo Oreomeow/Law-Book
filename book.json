@@ -9,7 +9,7 @@
         "-sharing",
         "anchor-navigation-ex",
         "chapter-fold",
-        "custom-favicon",
+        "favicon-absolute",
         "github",
         "hide-element",
         "insert-logo",
@@ -20,13 +20,16 @@
     ],
     "pluginsConfig": {
         "anchor-navigation-ex": { "showLevel": false },
-        "favicon": "favicon.ico",
+        "favicon-absolute": {
+            "favicon": "/favicon.ico",
+            "appleTouchIconPrecomposed152": "/apple-touch-icon-precomposed-152.png"
+        },
         "github": { "url": "https://github.com/Oreomeow/Law-Book" },
         "hide-element": {
             "elements": [".gitbook-link"]
         },
         "insert-logo": {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/Oreomeow/Law-Book/gh-pages/law-book.png",
+            "url": "/law-book.png",
             "style": "background: none; max-height: 30px; min-height: 30px"
         },
         "sharing": {
