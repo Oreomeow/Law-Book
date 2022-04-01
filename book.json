@@ -16,7 +16,8 @@
         "search-pro",
         "sharing-plus",
         "splitter",
-        "tbfed-pagefooter"
+        "tbfed-pagefooter",
+        "theme-comscore"
     ],
     "pluginsConfig": {
         "anchor-navigation-ex": { "showLevel": false },
