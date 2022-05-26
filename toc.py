@@ -102,7 +102,11 @@ def createRead0(dir_input: str, filename: str):
     Create a README index file in a subfolder
     """
 
-    title = re.sub(r".\\[0-9A-Z]+-", "", dir_input)
+    title = (
+        re.sub(r".\\[0-9A-Z]+-", "", dir_input)
+        if "\\" not in dir_input
+        else re.sub(r".\\[0-9A-Z]+-", "", dir_input).split("\\")[-1]
+    )
     readmeFile = open(os.path.join(dir_input, filename), "w")
     readmeFile.write(f"<!-- ex_nonav -->\n# {title}\n\n")
     output_markdown(dir_input, dir_input, readmeFile)
