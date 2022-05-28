@@ -22,15 +22,15 @@
     "pluginsConfig": {
         "anchor-navigation-ex": { "showLevel": false },
         "favicon-absolute": {
-            "favicon": "/favicon.ico",
-            "appleTouchIconPrecomposed152": "/apple-touch-icon-precomposed-152.png"
+            "favicon": "images/favicon.ico",
+            "appleTouchIconPrecomposed152": "images/apple-touch-icon-precomposed-152.png"
         },
         "github": { "url": "https://github.com/Oreomeow/Law-Book" },
         "hide-element": {
             "elements": [".gitbook-link"]
         },
         "insert-logo": {
-            "url": "/law-book.png",
+            "url": "images/law-book.png",
             "style": "background: none; max-height: 30px; min-height: 30px"
         },
         "sharing": {
