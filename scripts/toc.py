@@ -71,8 +71,11 @@ def output_markdown(dir: str, base_dir: str, output_file: str, iter_depth=0):
                         + "* [{}]({})\n".format(
                             is_markdown_file(re.sub(r"^[0-9A-Z]+-", "", filename)),
                             os.path.join(
-                                os.path.relpath(dir, base_dir).lstrip(r".\\"), filename
-                            ),
+                                os.path.relpath(dir, base_dir),
+                                filename,
+                            )
+                            .lstrip(r".\\")
+                            .replace("\\", "/"),
                         )
                     )
 
